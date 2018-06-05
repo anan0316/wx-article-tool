@@ -6,7 +6,7 @@
 
 * `npm i` 安装依赖
 * `npm start` 本地开发
-* `npm run build` 打包--Mac OS
+* `npm run package` 打包--Mac OS
 
 ### 功能点
 

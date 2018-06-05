@@ -11,6 +11,10 @@
 !important;
 }
 
+#img-content > .rich_media_content > p > span > span {
+    display: block;
+}
+
 body, ul {
     margin: 0;
     padding: 0;

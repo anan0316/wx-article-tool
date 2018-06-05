@@ -10,6 +10,7 @@ const homeDir = `${os.homedir()}/Documents/df-article-resource`;
 const localPathImage = `${homeDir}/images/`;
 const localPathHtml = `${homeDir}/html/`;
 
+
 // 本地目录创建
 createFile(homeDir).then(() => {
     createFile(localPathImage)
@@ -82,10 +83,14 @@ $('.btn-open').on('click', () => {
 
     utils.console('开始获取文章');
     getArticle(url).then((html) => {
+
         //采用cheerio模块解析html
-        let $cheerio = cheerio.load(html, {decodeEntities: false});
-        articleTitle = $cheerio('title').html();
-        $wx.html($cheerio('.rich_media_area_primary').html());
+        let $cheerio = cheerio.load(html),
+            topic = $cheerio('#activity-name').html(),
+            primary = $cheerio('.rich_media_area_primary').html();
+        articleTitle = ($cheerio('title').html() || $cheerio('#activity-name').html().split('(')[5].split(')')[0].split('"')[1]).trim();
+        let result = primary.replace(topic, articleTitle);
+        $wx.html(result);
         preLoadImage();
         delWxApp();
     }, () => {
@@ -129,7 +134,7 @@ function preLoadImage() {
         }
         // 临时方法
 
-        let type=$el.attr('data-action-type');
+        let type = $el.attr('data-action-type');
         if (type) {
             $el.parent().attr('data-action-type', type);
         }

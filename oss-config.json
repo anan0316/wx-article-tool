@@ -1,6 +1,6 @@
 {
-    "region": "oss-cn-hangzhou",
-    "accessKeyId": "LTAIbQnqC0C5wf5P",
-    "accessKeySecret": "0wUnokaNtBTp4PaG7wHpOxsqozkqBQ",
-    "bucket": "deepfashion"
+  "region": "oss-cn-hangzhou",
+  "accessKeyId": "LTAIbCM1CH8nHQ9f",
+  "accessKeySecret": "iJWigcCVZnipmatAljhVkjWiZFXYPp",
+  "bucket": "zhiyi-web"
 }
